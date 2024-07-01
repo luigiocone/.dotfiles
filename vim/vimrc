@@ -1,0 +1,3 @@
+runtime custom/set.vim
+runtime custom/linewrap.vim
+

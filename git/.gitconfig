@@ -1,0 +1,23 @@
+[alias]
+    # List aliases
+	aliases = config --get-regexp alias
+
+	# View abbreviated SHA, description, and history graph of the latest 20 commits
+	l  = log --pretty=oneline --graph --abbrev-commit -n 20 
+	ll = log --pretty=oneline --graph --abbrev-commit
+
+
+[merge]
+	# Include summaries of merged commits in newly created merge commit messages
+	log = true
+
+
+# [http]
+# 	sslVerify = false
+
+
+#[filter "lfs"]
+#	clean = git-lfs clean -- %f
+#	smudge = git-lfs smudge -- %f
+#	process = git-lfs filter-process
+#	required = true
