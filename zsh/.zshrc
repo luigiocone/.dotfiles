@@ -115,11 +115,12 @@ alias ds="pushd $DESKTOP"       # `dirs -c` to delete the stack
 alias dl="pushd $DOWNLOADS"
 alias pj="pushd $PROJECTS"
 
-$FZF_SCRIPT_DIR="/usr/share/doc/fzf/examples"
+FZF_SCRIPT_DIR="/usr/share/doc/fzf/examples"
 if [ -d "$FZF_SCRIPT_DIR" ]; then
     # ubuntu
-    source "$FZF_SCRIPT_DIR"/completion.zsh
-    source "$FZF_SCRIPT_DIR"/key-bindings.zsh
+    export PATH="$PATH:/opt/nvim-linux64/bin"
+    source "${FZF_SCRIPT_DIR}/completion.zsh"
+    source "${FZF_SCRIPT_DIR}/key-bindings.zsh"
 else
     # macos
     source <(fzf --zsh)

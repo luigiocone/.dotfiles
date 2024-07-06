@@ -117,9 +117,10 @@ if ! shopt -oq posix; then
 fi
 
 
-$FZF_SCRIPT_DIR="/usr/share/doc/fzf/examples"
+FZF_SCRIPT_DIR="/usr/share/doc/fzf/examples"
 if [ -d "$FZF_SCRIPT_DIR" ]; then
     # ubuntu
+    export PATH="$PATH:/opt/nvim-linux64/bin"
     source "$FZF_SCRIPT_DIR"/completion.bash
     source "$FZF_SCRIPT_DIR"/key-bindings.bash
 else
