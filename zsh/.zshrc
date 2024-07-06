@@ -120,3 +120,11 @@ source "$HOME/shell/scripts/tmp.sh"    # TODO: refine it
 source <(fzf --zsh)                    # fzf keybindings
 source <(kubectl completion zsh)       # kube autocompletion
 
+
+# Get output of "uname -s" if $OSTYPE is unset or null 
+os="${OSTYPE:-$(uname -s)}"
+
+case $os in
+  [lL]inux*)  source "$HOME/shell/ubuntu.sh"  ;;
+  [dD]arwin*) source "$HOME/shell/macos.sh" ;;
+esac
