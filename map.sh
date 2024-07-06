@@ -7,7 +7,9 @@ pairs=(
 #   package    target
     "git"      "$HOME"
     "zsh"      "$HOME"
+    "bash"     "$HOME"
     "vim"      "$HOME/.vim/"
+    "nvim"     "${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
     "iterm2"   "$HOME/.config/iterm2/"
 )
 
@@ -19,7 +21,7 @@ function getTargetByPackage() {
         local package="${pairs[i]}"
         local target="${pairs[$i+1]}"
         if [[ $package = $1 ]]; then
-            echo "\"$target\" \"$package\""
+            echo "\"$package\" \"$target\""
             break
         fi
     done
@@ -32,7 +34,7 @@ function getAllTargets() {
     do
         local package="${pairs[i]}"
         local target="${pairs[$i+1]}"
-        echo "\"$target\" \"$package\""
+        echo "\"$package\" \"$target\""
     done
 }
 

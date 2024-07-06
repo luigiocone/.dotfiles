@@ -5,14 +5,18 @@ $ stow --version
 stow (GNU Stow) version 2.3.1
 ```
 
-## Commands
+## Commands sheet
+0) __Create dirs__
+```
+$ ./map.sh | xargs -n2 bash -c 'mkdir -p "$0"'
+```
 1) __Install all__ (create symlink)
 ```
-$ ./map.sh | xargs -n2 bash -c 'stow -S -v --adopt --target="$0" "$1"'
+$ ./map.sh | xargs -n2 bash -c 'stow -S -v --adopt --target="$1" "$0"'
 ```
 2) __Update all__ (delete and create symlinks)
 ```
-$ ./map.sh | xargs -n2 bash -c 'stow -R -v --adopt --target="$0" $1'
+$ ./map.sh | xargs -n2 bash -c 'stow -R -v --adopt --target="$1" $0'
 ```
 3) __Operation on a subset of packages__
 ```
@@ -25,7 +29,7 @@ $ ./map.sh zsh git | xargs ...
 
 2) __Simulation mode__: Use `stow -n` option to show what would happen after the execution without performing any operation. For example:
 ```
-$ ./map.sh | xargs -n2 bash -c 'stow -S -nv --adopt --target="$0" "$1"'
+$ ./map.sh | xargs -n2 bash -c 'stow -S -nv --adopt --target="$1" "$0"'
 MV: .gitconfig -> .dotfiles/git/.gitconfig
 LINK: .gitconfig => .dotfiles/git/.gitconfig
 WARNING: in simulation mode so not modifying filesystem.
