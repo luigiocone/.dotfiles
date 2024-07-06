@@ -117,7 +117,11 @@ if ! shopt -oq posix; then
 fi
 
 
-source $HOME/myenv/*
+for file in $HOME/.config/myenv/* ; do
+  if [ -f "$file" ] ; then
+    source "$file"
+  fi
+done
 
 FZF_SCRIPT_DIR="/usr/share/doc/fzf/examples"
 if [ -d "$FZF_SCRIPT_DIR" ]; then

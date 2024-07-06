@@ -5,3 +5,16 @@ function cheat() {
     curl cheat.sh/$1 | less -R
 }
 
+# Add to PATH only if not already in it
+function addToPath() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$PATH:$1
+    fi
+}
+
+function addToPathFront() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$1:$PATH
+    fi
+}
+

@@ -104,7 +104,12 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-source $HOME/myenv/*
+for file in $HOME/.config/myenv/* ; do
+  if [ -f "$file" ] ; then
+    source "$file"
+  fi
+done
+
 source <(kubectl completion zsh)       # kube autocompletion
 # source "$HOME/shell/scripts/tmp.sh"    # TODO: refine it
 
