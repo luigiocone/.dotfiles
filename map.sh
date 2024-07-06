@@ -10,6 +10,7 @@ pairs=(
     "bash"     "$HOME"
     "vim"      "$HOME/.vim/"
     "nvim"     "${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
+    "myenv"    "$HOME/myenv"
     "iterm2"   "$HOME/.config/iterm2/"
 )
 

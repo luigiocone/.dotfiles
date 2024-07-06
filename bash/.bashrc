@@ -117,6 +117,8 @@ if ! shopt -oq posix; then
 fi
 
 
+source $HOME/myenv/*
+
 FZF_SCRIPT_DIR="/usr/share/doc/fzf/examples"
 if [ -d "$FZF_SCRIPT_DIR" ]; then
     # ubuntu

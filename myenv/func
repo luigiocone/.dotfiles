@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+# Show the common usages of a command
+function cheat() {
+    curl cheat.sh/$1 | less -R
+}
+

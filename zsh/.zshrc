@@ -104,35 +104,23 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-
-export DOTFILES="$HOME/.dotfiles"
-export DESKTOP="$HOME/Desktop"
-export DOWNLOADS="$HOME/Downloads"
-export PROJECTS="$HOME/projects"
-
-alias dt="pushd $DOTFILES"      # `dirs` to see the stack
-alias ds="pushd $DESKTOP"       # `dirs -c` to delete the stack
-alias dl="pushd $DOWNLOADS"
-alias pj="pushd $PROJECTS"
-
-FZF_SCRIPT_DIR="/usr/share/doc/fzf/examples"
-if [ -d "$FZF_SCRIPT_DIR" ]; then
-    # ubuntu
-    export PATH="$PATH:/opt/nvim-linux64/bin"
-    source "${FZF_SCRIPT_DIR}/completion.zsh"
-    source "${FZF_SCRIPT_DIR}/key-bindings.zsh"
-else
-    # macos
-    source <(fzf --zsh)
-fi
-
+source $HOME/myenv/*
 source <(kubectl completion zsh)       # kube autocompletion
-
 # source "$HOME/shell/scripts/tmp.sh"    # TODO: refine it
+
 # Get output of "uname -s" if $OSTYPE is unset or null 
-# os="${OSTYPE:-$(uname -s)}"
-# case $os in
-#   [lL]inux*)  source "$HOME/shell/ubuntu.sh"  ;;
-#   [dD]arwin*) source "$HOME/shell/macos.sh" ;;
-# esac
-#
+os="${OSTYPE:-$(uname -s)}"
+case $os in
+  [lL]inux*)  
+    FZF_SCRIPT_DIR="/usr/share/doc/fzf/examples"
+    if [ -d "$FZF_SCRIPT_DIR" ]; then
+      export PATH="$PATH:/opt/nvim-linux64/bin"
+      source "${FZF_SCRIPT_DIR}/completion.zsh"
+      source "${FZF_SCRIPT_DIR}/key-bindings.zsh"
+    fi
+    ;;
+  [dD]arwin*) 
+    source <(fzf --zsh)
+    ;;
+esac
+
