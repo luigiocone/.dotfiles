@@ -1,3 +1,21 @@
+# Three different git configs exists: system, global, local. 
+# This file contains the --global configs.
+#
+# 1) --system: Variables available for every user in the system
+#              Stored in: /etc/gitconfig
+#
+# 2) --global: Variables available for one user in the system
+#              Stored in: $HOME/.gitconfig
+#
+# 3) --local:  Variables available for the current repository ($MY_REPO)
+#              Stored in: $MY_REPO/.git/config
+# 
+# Priority: Local > Global > System
+# 
+# Use "git config --global --edit" to edit this file anytime
+# Use "git config --list --show-origin" to verify origin of each configuration
+
+
 [alias]
     # List aliases
 	aliases = config --get-regexp alias
@@ -5,6 +23,14 @@
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l  = log --pretty=oneline --graph --abbrev-commit -n 20 
 	ll = log --pretty=oneline --graph --abbrev-commit
+
+    # View the current working tree status using the short format.
+    s = status -s
+
+	# Rapid local config (add --unset to remove them)
+    name = config user.name
+    email = config user.email
+    helper = config credential.helper  # cache
 
 
 [merge]
