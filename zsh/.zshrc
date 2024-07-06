@@ -111,7 +111,7 @@ export DOWNLOADS="$HOME/Downloads"
 export PROJECTS="$HOME/projects"
 
 alias dt="pushd $DOTFILES"      # `dirs` to see the stack
-alias ds="pushd $DESKTOP"  
+alias ds="pushd $DESKTOP"       # `dirs -c` to delete the stack
 alias dl="pushd $DOWNLOADS"
 alias pj="pushd $PROJECTS"
 
