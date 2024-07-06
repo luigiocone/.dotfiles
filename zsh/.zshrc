@@ -115,16 +115,23 @@ alias ds="pushd $DESKTOP"       # `dirs -c` to delete the stack
 alias dl="pushd $DOWNLOADS"
 alias pj="pushd $PROJECTS"
 
-source "$HOME/shell/scripts/tmp.sh"    # TODO: refine it
+$FZF_SCRIPT_DIR="/usr/share/doc/fzf/examples"
+if [ -d "$FZF_SCRIPT_DIR" ]; then
+    # ubuntu
+    source "$FZF_SCRIPT_DIR"/completion.zsh
+    source "$FZF_SCRIPT_DIR"/key-bindings.zsh
+else
+    # macos
+    source <(fzf --zsh)
+fi
 
-source <(fzf --zsh)                    # fzf keybindings
 source <(kubectl completion zsh)       # kube autocompletion
 
-
+# source "$HOME/shell/scripts/tmp.sh"    # TODO: refine it
 # Get output of "uname -s" if $OSTYPE is unset or null 
-os="${OSTYPE:-$(uname -s)}"
-
-case $os in
-  [lL]inux*)  source "$HOME/shell/ubuntu.sh"  ;;
-  [dD]arwin*) source "$HOME/shell/macos.sh" ;;
-esac
+# os="${OSTYPE:-$(uname -s)}"
+# case $os in
+#   [lL]inux*)  source "$HOME/shell/ubuntu.sh"  ;;
+#   [dD]arwin*) source "$HOME/shell/macos.sh" ;;
+# esac
+#
