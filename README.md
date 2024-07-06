@@ -5,11 +5,13 @@ $ stow --version
 stow (GNU Stow) version 2.3.1
 ```
 
+## Clone and create dirs
+```
+$ git clone --recurse-submodules https://github.com/luigiocone/.dotfiles
+$ ./map.sh | xargs -n2 bash -c 'mkdir -p "$1"'
+```
+
 ## Commands sheet
-0) __Create dirs__
-```
-$ ./map.sh | xargs -n2 bash -c 'mkdir -p "$0"'
-```
 1) __Install all__ (create symlink)
 ```
 $ ./map.sh | xargs -n2 bash -c 'stow -S -v --adopt --target="$1" "$0"'
