@@ -8,11 +8,11 @@ pairs=(
     "git"      "$HOME"
     "zsh"      "$HOME"
     "bash"     "$HOME"
-    "vim"      "$HOME/.vim/"
+    "vim"      "$HOME/.vim"
     "nvim"     "${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
+    "myenv"    "${XDG_CONFIG_HOME:-$HOME/.config}/myenv"
+    "iterm2"   "${XDG_CONFIG_HOME:-$HOME/.config}/iterm2"
     "scripts"  "$HOME/.local/bin"
-    "myenv"    "$HOME/.config/myenv"
-    "iterm2"   "$HOME/.config/iterm2/"
 )
 
 
