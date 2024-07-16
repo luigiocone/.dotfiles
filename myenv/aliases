@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 
 # List paths
-alias path="$PATH | tr ':' '\n'"
+alias path="echo $PATH | tr ':' '\n'"
 

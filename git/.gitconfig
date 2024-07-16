@@ -9,41 +9,41 @@
 #
 # 3) --local:  Variables available for the current repository ($MY_REPO)
 #              Stored in: $MY_REPO/.git/config
-# 
+#
 # Priority: Local > Global > System
-# 
+#
 # Use "git config --global --edit" to edit this file anytime
 # Use "git config --list --show-origin" to verify origin of each configuration
 
 
 [alias]
     # List aliases
-	aliases = config --get-regexp alias
+    aliases = config --get-regexp alias
 
-	# View abbreviated SHA, description, and history graph of the latest 20 commits
-	l  = log --pretty=oneline --graph --abbrev-commit -n 20 
-	ll = log --pretty=oneline --graph --abbrev-commit
+    # View abbreviated SHA, description, and history graph of the latest 20 commits
+    l  = log --pretty=oneline --graph --abbrev-commit -n 20 
+    ll = log --pretty=oneline --graph --abbrev-commit
 
     # View the current working tree status using the short format.
     s = status -s
 
-	# Rapid local config (add --unset to remove them)
+    # Rapid local config (add --unset to remove them)
     name = config user.name
     email = config user.email
     helper = config credential.helper  # cache
 
 
 [merge]
-	# Include summaries of merged commits in newly created merge commit messages
-	log = true
+    # Include summaries of merged commits in newly created merge commit messages
+    log = true
 
 
 # [http]
-# 	sslVerify = false
+#     sslVerify = false
 
 
 #[filter "lfs"]
-#	clean = git-lfs clean -- %f
-#	smudge = git-lfs smudge -- %f
-#	process = git-lfs filter-process
-#	required = true
+#    clean = git-lfs clean -- %f
+#    smudge = git-lfs smudge -- %f
+#    process = git-lfs filter-process
+#    required = true
