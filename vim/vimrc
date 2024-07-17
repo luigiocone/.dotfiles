@@ -1,3 +1,4 @@
+runtime custom/remap.vim
 runtime custom/set.vim
 runtime custom/linewrap.vim
 

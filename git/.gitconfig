@@ -27,10 +27,29 @@
     # View the current working tree status using the short format.
     s = status -s
 
+    # Find commits by source code (git fc "print")
+    fc = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
+
+    # Find commits by commit message (git fm "fix")
+    fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+
     # Rapid local config (add --unset to remove them)
     name = config user.name
     email = config user.email
     helper = config credential.helper  # cache
+
+    # List contributors with number of commits
+    contributors = shortlog --summary --numbered
+
+    # Show verbose output about tags, branches or remotes
+    tags = tag -l
+    branches = branch --all
+    remotes = remote --verbose
+
+
+[branch]
+    # Show most recently changed branches first
+    sort = -committerdate
 
 
 [merge]
