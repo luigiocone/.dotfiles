@@ -9,6 +9,7 @@ pairs=(
     "zsh"      "$HOME"
     "bash"     "$HOME"
     "vim"      "$HOME/.vim"
+    "ideavim"  "$HOME"
     "nvim"     "${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
     "myenv"    "${XDG_CONFIG_HOME:-$HOME/.config}/myenv"
     "iterm2"   "${XDG_CONFIG_HOME:-$HOME/.config}/iterm2"

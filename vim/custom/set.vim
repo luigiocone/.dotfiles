@@ -4,6 +4,9 @@ syntax on
 set number
 set relativenumber
 
+" OS clipboard is the default copy/paste buffer
+set clipboard=unnamedplus
+
 " Tabs are replaced with spaces
 set expandtab
 " Width of a tabulation
@@ -21,7 +24,7 @@ set incsearch
 nnoremap <C-L> :noh<CR><C-L>
 
 " Show 'invisible' characters
-set lcs=tab:▸\ ,trail:·,nbsp:_
+set listchars=tab:▸\ ,trail:·,nbsp:_
 set list
 
 " Cursor will be 4 lines away the start/end of the viewport
@@ -38,4 +41,3 @@ set viminfo+=n~/.vim/viminfo
 " if exists("&undodir")
 "     set undodir=~/.vim/undo
 " endif
-

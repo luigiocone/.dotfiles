@@ -1,0 +1,20 @@
+" source ~/.vim/vimrc
+source ~/.vim/custom/set.vim
+source ~/.vim/custom/remap.vim
+
+let mapleader = " "
+
+" Hide every window and show only editor tab
+map <leader>h <Action>(HideAllWindows)
+
+" Switch to project tree window
+map <leader>p <Action>(ActivateProjectToolWindow)
+
+" Switch to terminal window
+map <leader>t <Action>(ActivateTerminalToolWindow)
+
+" Useful mappings
+map <leader>r <Action>(Run)
+map <leader>f <Action>(GotoFile)
+map <leader>g <Action>(FindInPath)
+map <leader>s <Action>(Switcher)
