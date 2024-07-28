@@ -13,8 +13,19 @@ map <leader>p <Action>(ActivateProjectToolWindow)
 " Switch to terminal window
 map <leader>t <Action>(ActivateTerminalToolWindow)
 
+" Close a tab
+map <leader>x <Action>(CloseContent)
+
 " Useful mappings
 map <leader>r <Action>(Run)
 map <leader>f <Action>(GotoFile)
 map <leader>g <Action>(FindInPath)
 map <leader>s <Action>(Switcher)
+nmap <leader>z <Action>(ToggleDistractionFreeMode)
+
+" LSP maps
+nmap gi <Action>(GotoImplementation)
+
+" ideavim plugins (https://github.com/joshestein/ideavim-quickscope)
+"let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']    " show highlight only after key press (needs restart)
+set quickscope
