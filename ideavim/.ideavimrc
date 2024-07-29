@@ -17,14 +17,17 @@ map <leader>t <Action>(ActivateTerminalToolWindow)
 map <leader>x <Action>(CloseContent)
 
 " Useful mappings
-map <leader>r <Action>(Run)
 map <leader>f <Action>(GotoFile)
 map <leader>g <Action>(FindInPath)
 map <leader>s <Action>(Switcher)
 nmap <leader>z <Action>(ToggleDistractionFreeMode)
+nmap <leader>ru <Action>(Run)
 
 " LSP maps
 nmap gi <Action>(GotoImplementation)
+nmap gu <Action>(FindUsages)
+nmap gs <Action>(GotoSuperMethod)
+nmap <leader>re <Action>(RenameElement)
 
 " ideavim plugins (https://github.com/joshestein/ideavim-quickscope)
 "let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']    " show highlight only after key press (needs restart)
