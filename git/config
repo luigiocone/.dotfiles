@@ -5,7 +5,7 @@
 #              Stored in: /etc/gitconfig
 #
 # 2) --global: Variables available for one user in the system
-#              Stored in: $HOME/.gitconfig
+#              Stored in: $HOME/.gitconfig or ${XDG_CONFIG_HOME}/git/config
 #
 # 3) --local:  Variables available for the current repository ($MY_REPO)
 #              Stored in: $MY_REPO/.git/config

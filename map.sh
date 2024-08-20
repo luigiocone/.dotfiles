@@ -5,11 +5,12 @@ pairs=(
 #   key        value
 #    /           /
 #   package    target
-    "git"      "$HOME"
     "zsh"      "$HOME"
     "bash"     "$HOME"
     "vim"      "$HOME/.vim"
     "ideavim"  "$HOME"
+    "fd"       "${XDG_CONFIG_HOME:-$HOME/.config}/fd"
+    "git"      "${XDG_CONFIG_HOME:-$HOME/.config}/git"
     "nvim"     "${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
     "myenv"    "${XDG_CONFIG_HOME:-$HOME/.config}/myenv"
     "iterm2"   "${XDG_CONFIG_HOME:-$HOME/.config}/iterm2"
