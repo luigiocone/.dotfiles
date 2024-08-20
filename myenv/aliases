@@ -23,5 +23,5 @@ alias procport="sudo netstat -tulpn"
 # Show running deamons & services
 # https://unix.stackexchange.com/questions/175380/how-to-list-all-running-daemons
 # alias daemons="sudo systemctl --type=service"
-alias daemons="ps -C \"$(xlsclients | cut -d' ' -f3 | paste - -s -d ',')\" --ppid 2 --pid 2 --deselect -o tty,uid,pid,ppid,args | header | grep \"^?\""
+# alias daemons="ps -C \"$(xlsclients | cut -d' ' -f3 | paste - -s -d ',')\" --ppid 2 --pid 2 --deselect -o tty,uid,pid,ppid,args | header | grep \"^?\""
 

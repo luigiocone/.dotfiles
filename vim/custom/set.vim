@@ -5,7 +5,11 @@ set number
 set relativenumber
 
 " OS clipboard is the default copy/paste buffer
-set clipboard=unnamedplus
+if system('uname -s') == "Darwin\n"
+  set clipboard=unnamed     "OSX
+else
+  set clipboard=unnamedplus "Linux
+endif
 
 " Tabs are replaced with spaces
 set expandtab
