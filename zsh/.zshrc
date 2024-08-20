@@ -104,14 +104,25 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
+# TODO: Organize this chaos
+
 for file in $HOME/.config/myenv/* ; do
   if [ -f "$file" ] ; then
     source "$file"
   fi
 done
 
+for file in $HOME/.config/myenv/scripts/* ; do
+  if [ -f "$file" ] ; then
+    source "$file"
+  fi
+done
+
+addToPath $HOME/.local/bin/
+
+export HISTFILE
+
 source <(kubectl completion zsh)       # kube autocompletion
-# source "$HOME/shell/scripts/tmp.sh"    # TODO: refine it
 
 # Get output of "uname -s" if $OSTYPE is unset or null 
 os="${OSTYPE:-$(uname -s)}"

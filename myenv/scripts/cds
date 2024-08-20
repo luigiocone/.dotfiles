@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -e
+
+function getFdCommand() {
+    if command -v fd &> /dev/null; then
+        echo "fd"
+    elif command -v fdfind &> /dev/null; then
+        echo "fdfind"
+    else
+        echo "fd is not installed"
+        exit 1
+    fi
+}
+
+function cds() {
+    # Get fd command
+    fd_cmd=$(getFdCommand)
+
+    # Search and change dir
+    selected=$($fd_cmd . "$HOME" --hidden | fzf)
+    selected=$(dirname $selected)
+    pushd $selected
+}
+

@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+set -e
+
+
+function escape_regex() {
+    # Add '\' before each special character
+    local input="$1"
+    echo "$input" | sed 's/[]\/$*.^[]/\\&/g'
+}
+
+
+# Check input parameters
+if [ $# -ne 1 ] || [ -z "$1" ]; then
+    echo "Usage: $(basename $0) query"
+    exit 1
+fi
+
+if [ -z "$HISTFILE" ]; then
+    echo "Environment variable '\$HISTFILE' is empty"
+    exit 1
+fi
+
+LC_ALL=C   # prevents 'illegal byte sequence' failure
+escaped=$(escape_regex "$1")
+deleted=$(grep "$escaped" $HISTFILE)
+count=$(echo "$deleted" | wc -l | xargs)  # xargs used as "strip()"
+
+echo
+echo "Lines:"
+echo "$deleted"
+echo
+echo "$count lines will be delete from $HISTFILE"
+echo
+
+if confirm_prompt; then
+    count=$(cat $HISTFILE | wc -l | xargs)
+    echo "Lines before: $count"
+    sed -i '' "/$escaped/d" $HISTFILE
+    count=$(cat $HISTFILE | wc -l | xargs)
+    echo "Lines after: $count"
+else
+    exit 1
+fi
+

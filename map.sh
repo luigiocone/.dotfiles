@@ -7,6 +7,7 @@ pairs=(
 #   package    target
     "zsh"      "$HOME"
     "bash"     "$HOME"
+    "bin"      "$HOME/.local/bin"
     "vim"      "$HOME/.vim"
     "ideavim"  "$HOME"
     "fd"       "${XDG_CONFIG_HOME:-$HOME/.config}/fd"
@@ -14,7 +15,6 @@ pairs=(
     "nvim"     "${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
     "myenv"    "${XDG_CONFIG_HOME:-$HOME/.config}/myenv"
     "iterm2"   "${XDG_CONFIG_HOME:-$HOME/.config}/iterm2"
-    "scripts"  "$HOME/.local/bin"
 )
 
 

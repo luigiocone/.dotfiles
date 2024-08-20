@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# macOS sh/bash version does not support read -p
+# Print the prompt and read the user input
+
+echo -n "Confirm operation? (y/n): "
+read -r response
+
+case "$response" in
+    [yY][eE][sS]|[yY])
+        echo
+        exit 0
+        ;;
+    *)
+        echo "Operation canceled."
+        exit 1
+        ;;
+esac
+

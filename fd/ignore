@@ -2,3 +2,10 @@ venv
 .venv
 .git
 
+# MacOS
+/Users/luigi/Music/
+/Users/luigi/Movies/
+/Users/luigi/Public/
+/Users/luigi/Applications/
+/Users/luigi/Library/
+
