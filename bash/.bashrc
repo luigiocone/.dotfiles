@@ -134,3 +134,5 @@ else
     source <(fzf --bash)
 fi
 
+# pyenv
+eval "$(pyenv virtualenv-init -)"
