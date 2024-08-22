@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 function getFdCommand() {
     if command -v fd &> /dev/null; then
         echo "fd"
@@ -14,12 +12,14 @@ function getFdCommand() {
 }
 
 function cds() {
-    # Get fd command
     fd_cmd=$(getFdCommand)
 
-    # Search and change dir
+    # Search for a path interactively
     selected=$($fd_cmd . "$HOME" --hidden | fzf)
-    selected=$(dirname $selected)
+
+    if [ ! -d $selected ]; then
+        selected=$(dirname $selected)
+    fi
     pushd $selected
 }
 
