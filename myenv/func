@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function cheat() {
-    # Show the common usages of a command
+    # Show the common usages of a command (similar to 'tldr')
     curl cheat.sh/$1 | less -R
 }
 

@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+function menu() {
+    # Merge two json file
+    local jsonDir="/home/kebula/.local/share/ulauncher/extensions/com.github.iboyperson.ulauncher-system"
+    local merged=$(jq -s add "${jsonDir}/entries/default.json" "${jsonDir}/entries/gnome.json")
+
+    # Filter attributes and output a formatted string representation of each json object
+    local selected=$(
+        echo $merged |
+        jq 'to_entries | map({key:.key, name:.value.name, cmd:.value.command, description:.value.description})' |
+        jq -r '(.[] | [.key, .cmd]) | @tsv' |
+        column -ts $'\t' |
+        fzf
+    )
+
+    # Get command correspondent to the selected key
+    local key=$(echo $selected | awk '{print $1}' | xargs)
+    local selected_cmd=$(echo $merged | jq -r --arg arg0 $key '.[$arg0].command')
+    echo -e "Executing:\n$selected_cmd"
+    if confirm_prompt; then
+        # TODO:
+        echo $selected_cmd
+        # eval $selected_cmd 
+    fi
+}
+

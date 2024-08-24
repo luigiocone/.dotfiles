@@ -36,7 +36,7 @@ echo
 if confirm_prompt; then
     count=$(cat $HISTFILE | wc -l | xargs)
     echo "Lines before: $count"
-    sed -i '' "/$escaped/d" $HISTFILE
+    sed -i '' "/$escaped/d" $HISTFILE  # TODO: check this
     count=$(cat $HISTFILE | wc -l | xargs)
     echo "Lines after: $count"
 else
