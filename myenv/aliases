@@ -3,10 +3,14 @@
 # List paths
 alias path="echo $PATH | tr ':' '\n'"
 
+# Characters not available on italian keyboard
+alias tilde='printf "~" | cb'
+alias backtick='printf "\`" | cb'   # AltGr + '
+
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} --login"
 
-# Show and ignore first line of a pipe 
+# Show and ignore first line of a pipe
 # https://unix.stackexchange.com/questions/28503/how-can-i-send-stdout-to-multiple-commands
 alias header="tee >(head -n1) | tail -n+1"
 
@@ -15,7 +19,7 @@ alias header="tee >(head -n1) | tail -n+1"
 # 2) -n inhibits the conversion of network numbers to host names for network files
 alias netfiles="sudo lsof -i -P -n"
 alias listen="netfiles | header | grep LISTEN"
-alias estab="netfiles | header |grep ESTABILISHED"
+alias estab="netfiles | header | grep ESTABILISHED"
 
 # netstat (tcp, udp, listening, pid, numerical addresses)
 alias procport="sudo netstat -tulpn"

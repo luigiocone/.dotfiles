@@ -45,7 +45,7 @@ elif is_win; then
   alias cbcopy=putclip
   alias cbpaste=getclip
 else
-  if is_wayland; then
+  if command -v "wl-copy"; then
     alias cbcopy=wl-copy
     alias cbpaste='wl-paste --no-newline'
   else
