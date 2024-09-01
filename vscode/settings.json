@@ -9,6 +9,11 @@
     "editor.cursorSurroundingLines": 4,
     "editor.cursorSurroundingLinesStyle": "default",
 
+    // Disable autoupdate
+    "update.mode": "none",
+    "extensions.autoCheckUpdates": true,
+    "extensions.autoUpdate": false,
+
     // Project explorer indentation and guides
     "workbench.tree.indent": 15,
     "workbench.tree.renderIndentGuides": "always",
