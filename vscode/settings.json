@@ -23,7 +23,7 @@
 
     // vscodevimrc support only remaps (doesn't support leaderkey)
     "vim.vimrc.enable": true,
-    "vim.vimrc.path": "/home/kebula/.vim/custom/remap.vim",
+    "vim.vimrc.path": "$HOME/.vim/custom/remap.vim",
     "vim.useSystemClipboard": true,
     "vim.highlightedyank.enable": true,
     "vim.highlightedyank.duration": 100,
