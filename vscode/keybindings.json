@@ -1,6 +1,7 @@
 // Place your key bindings in this file to override the defaults
 [
     {
+        // Useful to switch from terminal to editor
         "key": "escape",
         "command": "workbench.action.focusActiveEditorGroup",
         "when":"!editorTextFocus"

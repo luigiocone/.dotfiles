@@ -1,4 +1,5 @@
 {
+    "editor.stickyScroll.enabled": true,
     "editor.lineNumbers": "relative",
     "editor.rulers": [80],
     "editor.renderWhitespace": "trailing",
@@ -8,6 +9,14 @@
     "editor.cursorSurroundingLines": 4,
     "editor.cursorSurroundingLinesStyle": "default",
 
+    // Project explorer indentation and guides
+    "workbench.tree.indent": 15,
+    "workbench.tree.renderIndentGuides": "always",
+    "workbench.colorCustomizations": {
+        "tree.indentGuidesStroke": "default"
+    },
+
+    // vscodevimrc support only remaps (doesn't support leaderkey)
     "vim.vimrc.enable": true,
     "vim.vimrc.path": "/home/kebula/.vim/custom/remap.vim",
     "vim.useSystemClipboard": true,
@@ -16,6 +25,8 @@
     "vim.smartRelativeLine": true,
     "vim.hlsearch": true,
     "vim.incsearch": true,
+
+    // Which keybindings vim should handle and which not
     "vim.handleKeys": {
         "<C-d>": true,
         "<C-u>": true,
@@ -29,6 +40,8 @@
         "<C-p>": false,
         "<C-n>": false
     },
+
+    // LSP and custom keybindings (handled by vim)
     "vim.leader": "<space>",
     "vim.insertModeKeyBindings": [
         {
