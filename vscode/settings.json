@@ -1,0 +1,107 @@
+{
+    "editor.lineNumbers": "relative",
+    "editor.rulers": [80],
+    "editor.renderWhitespace": "trailing",
+    "editor.renderControlCharacters": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.cursorSurroundingLines": 4,
+    "editor.cursorSurroundingLinesStyle": "default",
+
+    "vim.vimrc.enable": true,
+    "vim.vimrc.path": "/home/kebula/.vim/custom/remap.vim",
+    "vim.useSystemClipboard": true,
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.duration": 100,
+    "vim.smartRelativeLine": true,
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-u>": true,
+        "<C-c>": false,
+        "<C-v>": true,
+        "<C-a>": false,
+        "<C-x>": true,
+        "<C-k>": false,
+        "<C-f>": false,
+        "<C-h>": false,
+        "<C-p>": false,
+        "<C-n>": false
+    },
+    "vim.leader": "<space>",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": ["<leader>", "p"],
+            "after": ["\"", "_", "d", "P"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<C-L>"],
+            "commands": [":nohl", "workbench.action.focusActiveEditorGroup"]
+        },
+        {
+            "before": ["<leader>", "h"],
+            "commands": ["workbench.action.closeSidebar", "workbench.action.closePanel"]
+        },
+        {
+            "before": ["<leader>", "pv"],
+            "commands": ["workbench.view.explorer"]
+        },
+        {
+            "before": ["<leader>", "t"],
+            "commands": ["workbench.action.terminal.focus"]
+        },
+        {
+            "before": ["<leader>", "x"],
+            "commands": ["workbench.action.closeActiveEditor"]
+        },
+        {
+            "before": ["<leader>", "f"],
+            "commands": ["workbench.action.quickOpen"]
+        },
+        {
+            "before": ["<leader>", "g"],
+            "commands": ["workbench.view.search"]
+        },
+        {
+            "before": ["<leader>", "s"],
+            "commands": ["workbench.action.showCommands"]
+        },
+        {
+            "before": ["<leader>", "z"],
+            "commands": ["workbench.action.toggleZenMode"]
+        },
+        {
+            "before": ["<leader>", "r", "u"],
+            "commands": ["workbench.action.debug.run"]
+        },
+        {
+            "before": ["<leader>", "r", "e"],
+            "commands": ["editor.action.rename"]
+        },
+        {
+            "before": ["<leader>", "q", "d"],
+            "commands": ["editor.action.showHover"]
+        },
+        {
+            "before": ["<leader>", "q", "f"],
+            "commands": ["editor.action.quickFix"]
+        },
+        {
+            "before": ["g", "i"],
+            "commands": ["editor.action.goToImplementation"]
+        },
+        {
+            "before": ["g", "r"],
+            "commands": ["editor.action.referenceSearch.trigger"]
+        },
+    ]
+}

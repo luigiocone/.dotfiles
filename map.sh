@@ -14,6 +14,7 @@ pairs=(
     "git"      "${XDG_CONFIG_HOME:-$HOME/.config}/git"
     "nvim"     "${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
     "myenv"    "${XDG_CONFIG_HOME:-$HOME/.config}/myenv"
+    "vscode"   "${XDG_CONFIG_HOME:-$HOME/.config}/Code/User"
     "iterm2"   "${XDG_CONFIG_HOME:-$HOME/.config}/iterm2"
 )
 
