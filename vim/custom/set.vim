@@ -5,7 +5,7 @@ set number
 set relativenumber
 
 " OS clipboard is the default copy/paste buffer
-if system('uname -s') == "Darwin\n"
+if trim(system('uname -s')) == "Darwin"
   set clipboard=unnamed     "OSX
 else
   set clipboard=unnamedplus "Linux

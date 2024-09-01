@@ -4,6 +4,9 @@ source ~/.vim/custom/remap.vim
 
 let mapleader = " "
 
+" set clipboard=unnamed     "OSX
+set clipboard=unnamedplus    "Linux
+
 " Hide every window and show only editor tab
 map <leader>h <Action>(HideAllWindows)
 
