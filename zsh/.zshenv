@@ -17,3 +17,4 @@ XDG_CACHE_HOME=$HOME/.cache
 # ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 # ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 
+. "$HOME/.cargo/env"

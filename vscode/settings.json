@@ -1,4 +1,12 @@
 {
+    // Why vscode is so slow?
+    // "disable-hardware-acceleration": true,
+    // "extensions.experimental.affinity": {
+    //     "vscodevim.vim": 1,
+    //     "asvetliakov.vscode-neovim": 1
+    // },
+    // "git.autorefresh": false
+
     "editor.stickyScroll.enabled": true,
     "editor.lineNumbers": "relative",
     "editor.rulers": [80],
@@ -8,6 +16,7 @@
     "editor.insertSpaces": true,
     "editor.cursorSurroundingLines": 4,
     "editor.cursorSurroundingLinesStyle": "default",
+    "editor.cursorBlinking": "solid",
 
     // Disable autoupdate
     "update.mode": "none",
@@ -121,5 +130,9 @@
             "before": ["g", "r"],
             "commands": ["editor.action.referenceSearch.trigger"]
         },
-    ]
+        {
+            "before": ["<leader>", "g", "f"],
+            "commands": ["workbench.action.findInFiles"]
+        }
+    ],
 }

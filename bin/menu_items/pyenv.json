@@ -1,0 +1,29 @@
+[
+    {
+        "name": "pyenv-downloads",
+        "description": "Show all available python versions",
+        "command": "pyenv install --list",
+        "hints": ["ok", "notok", "oknotok", "hint4"]
+    },
+    {
+        "name": "pyenv-installed",
+        "description": "Show the installed python versions",
+        "command": "pyenv versions",
+        "hints": []
+    },
+    {
+        "name": "pyenv-help",
+        "description": "Show pyenv help",
+        "command": "pyenv help"
+    },
+    {
+        "name": "pyenv-global",
+        "description": "Set the global python version",
+        "command": "pyenv global 3.11"
+    },
+    {
+        "name": "pyenv-install",
+        "description": "Install a new python version",
+        "command": "pyenv install 3.11"
+    }
+]

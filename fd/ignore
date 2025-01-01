@@ -1,8 +1,8 @@
 venv
 .venv
 .git
+node_modules
 
-~/.cache/
 
 # MacOS
 /Users/luigi/Music/
@@ -10,4 +10,28 @@ venv
 /Users/luigi/Public/
 /Users/luigi/Applications/
 /Users/luigi/Library/
+
+
+# Ubuntu
+/home/kebula/snap
+
+
+# Ignore all home dotfiles with some exceptions
+# TODO: An exclusion list (or another solution) must be used
+/home/kebula/.*
+!/home/kebula/.aws/
+!/home/kebula/.bash*
+!/home/kebula/.config/
+!/home/kebula/.dotfiles/
+!/home/kebula/.dotfiles/
+!/home/kebula/.git*
+!/home/kebula/.*rc
+!/home/kebula/.local/
+!/home/kebula/.oh-my-zsh/
+!/home/kebula/.*profile*
+!/home/kebula/.pgpass
+!/home/kebula/.psql_history
+!/home/kebula/.ssh
+!/home/kebula/.vim*
+!/home/kebula/.zsh*
 

@@ -11,7 +11,7 @@ set clipboard=unnamedplus    "Linux
 map <leader>h <Action>(HideAllWindows)
 
 " Switch to project tree window
-map <leader>p <Action>(ActivateProjectToolWindow)
+" map <leader>p <Action>(ActivateProjectToolWindow)
 
 " Switch to terminal window
 map <leader>t <Action>(ActivateTerminalToolWindow)
@@ -20,8 +20,7 @@ map <leader>t <Action>(ActivateTerminalToolWindow)
 map <leader>x <Action>(CloseContent)
 
 " Useful mappings
-map <leader>f <Action>(GotoFile)
-map <leader>g <Action>(FindInPath)
+map <leader>f <Action>(FindInPath)
 map <leader>s <Action>(Switcher)
 nmap <leader>z <Action>(ToggleDistractionFreeMode)
 nmap <leader>ru <Action>(Run)
@@ -37,3 +36,6 @@ nmap <leader>ed <Action>(ExternalJavaDoc)
 " ideavim plugins (https://github.com/joshestein/ideavim-quickscope)
 "let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']    " show highlight only after key press (needs restart)
 set quickscope
+
+" ideavim plugins (https://github.com/tpope/vim-commentary)
+set commentary
