@@ -106,13 +106,13 @@ source $ZSH/oh-my-zsh.sh
 
 # TODO: Organize this chaos
 
-for file in $HOME/.config/myenv/* ; do
+for file in $HOME/.config/myenv/*(N) ; do
   if [ -f "$file" ] ; then
     source "$file"
   fi
 done
 
-for file in $HOME/.config/myenv/scripts/* ; do
+for file in $HOME/.config/myenv/scripts/*(N) ; do
   if [ -f "$file" ] ; then
     source "$file"
   fi

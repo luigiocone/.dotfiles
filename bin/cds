@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+set -e  # Exit on error
+set -u  # Undefined variable check
+
+
+function getFdCommand() {
+    if command -v fd &> /dev/null; then
+        echo "fd"
+    elif command -v fdfind &> /dev/null; then
+        echo "fdfind"
+    else
+        echo "fd is not installed"
+        exit 1
+    fi
+}
+
+# TODO: Use fd as FZF default instead of find
+
+# Search interactively for a path starting from $HOME
+fd_cmd=$(getFdCommand)
+selected=$($fd_cmd . "$HOME" --hidden | fzf)
+
+if [ ! -d $selected ]; then
+    selected=$(dirname $selected)
+fi
+pushd $selected
+
