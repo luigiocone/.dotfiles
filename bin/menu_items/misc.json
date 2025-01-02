@@ -1,0 +1,12 @@
+[
+    {
+        "name": "tree",
+        "description": "Show a tree limited by width and depth",
+        "command": "tree --filelimit 20 -L 2 .",
+        "hints": [
+            "-a: Include dotfiles",
+            "-d: List directories only",
+            "-l: Follow symbolic links"
+        ]
+    }
+]

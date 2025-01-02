@@ -4,48 +4,59 @@ set -e  # Exit on error
 set -u  # Undefined variable check
 
 MERGED_PATH="$HOME/.local/bin/menu_items/merged.json"
-SEPARATOR=$'\t'
+SEPARATOR=$'|'
 
 
-# Update merged json file
-if [ ! -f "$MERGED_PATH" ]; then
-    echo "File '$MERGED_PATH' does not exists, a creation attempt will be done..."
+# Update merged json file if make is installed
+if command -v make &> /dev/null; then
+    pushd $(dirname $MERGED_PATH) > /dev/null
+    make -s
+    popd > /dev/null
+else
+    echo "'make' is not installed, cannot update '$MERGED_PATH'" >&2
 fi
-pushd $(dirname $MERGED_PATH) > /dev/null
-make -s
-popd > /dev/null
+
+if [ ! -f "$MERGED_PATH" ]; then
+    echo "File does not exist: '$MERGED_PATH'"
+    exit 1
+fi
 
 
-# Filter attributes and output a formatted string representation of each json object
+# Filter attributes and output a string representation of each json object
 selected_row=$(
     jq 'to_entries | map({id:.value.id, description:.value.description, cmd:.value.command})' "$MERGED_PATH" |
     jq -r '(.[] | [.id, .description, .cmd]) | @tsv' |
-    column -t --separator $'\t' --output-separator "$SEPARATOR" --table-right 1 |
+    column -t --separator $'\t' --output-separator " $SEPARATOR " --table-right 1 |
     fzf
 )
+
 
 # Map each column from the selected row. Also remove any leading and trailing spaces
 id=$(cut -d"$SEPARATOR" -f1 <<< "$selected_row" | xargs)
 description=$(cut -d"$SEPARATOR" -f2 <<< "$selected_row" | xargs)
 cmd=$(cut -d"$SEPARATOR" -f3 <<< "$selected_row" | xargs)
 
+
+# Copy the command in clipboard
+echo -n $cmd | cb
+
+echo "The following command has been copied in system clipboard:"
+echo ""
 echo $cmd
 echo ""
-echo -n $cmd | cb
-echo "Command copied in system clipboard"
+
 
 # Use id to extract individual attributes from the whole json object
 object=$(jq --arg id "$id" '.[] | select(.id == ($id | tonumber))' "$MERGED_PATH")
 name=$(echo "$object" | jq -r '.name')
 
-# Retrieve the hints array and parse it as a bash array
+# Pretty print all hints if any
 if echo "$object" | jq -e '.hints' > /dev/null; then
-    echo ""
-    echo "Hints:"
+    # Retrieve the hints array and parse it as a bash array
     hints=$(echo "$object" | jq -r '.hints | @sh')
     declare -a hints_array="($hints)"
 
-    # Pretty print with numbers
+    echo "Hints:"
     counter=1
     for hint in "${hints_array[@]}"; do
         echo "$counter) $hint"

@@ -2,14 +2,12 @@
     {
         "name": "pyenv-downloads",
         "description": "Show all available python versions",
-        "command": "pyenv install --list",
-        "hints": ["ok", "notok", "oknotok", "hint4"]
+        "command": "pyenv install --list"
     },
     {
         "name": "pyenv-installed",
         "description": "Show the installed python versions",
-        "command": "pyenv versions",
-        "hints": []
+        "command": "pyenv versions"
     },
     {
         "name": "pyenv-help",
