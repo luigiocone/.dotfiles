@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
+# Show the common usages of a command (similar to 'tldr')
 function cheat() {
-    # Show the common usages of a command (similar to 'tldr')
     curl cheat.sh/$1 | less -R
 }
 
@@ -16,5 +16,14 @@ function addToPathFront() {
     if [[ "$PATH" != *"$1"* ]]; then
         export PATH=$1:$PATH
     fi
+}
+
+# Search a file/directory starting from home and go to that dir
+function cds() {
+    selected=$(home)
+    if [ ! -d $selected ]; then
+        selected=$(dirname $selected)
+    fi
+    pushd $selected
 }
 
