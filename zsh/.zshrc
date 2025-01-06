@@ -112,7 +112,7 @@ for file in $HOME/.config/myenv/*(N) ; do
   fi
 done
 
-for file in $HOME/.config/myenv/scripts/*(N) ; do
+for file in $HOME/.config/myenv/others/*(N) ; do
   if [ -f "$file" ] ; then
     source "$file"
   fi
