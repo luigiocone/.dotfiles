@@ -1,0 +1,12 @@
+[
+    {
+        "name": "git_commit_date",
+        "description": "Change last commits date",
+        "command": "GIT_COMMITTER_DATE=\"$(date)\" git commit --amend --no-edit --date \"$(date)\"",
+        "hints": [
+            "Start with interactive rebase. To change the date of the last 5 commits:\ngit rebase -i HEAD~5",
+            "In the editor, change 'pick' with 'edit' and save (:wq)",
+            "Repeat the following 5 times: \nGIT_COMMITTER_DATE=\"$(date)\" git commit --amend --no-edit --date \"$(date)\"\ngit rebase --continue"
+        ]
+    }
+]

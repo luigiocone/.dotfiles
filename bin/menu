@@ -3,6 +3,13 @@
 set -e  # Exit on error
 set -u  # Undefined variable check
 
+
+# ANSI escape codes for colors and text styles
+RESET="${ANSI_RESET:-\e[0m}"
+BOLD="${ANSI_BOLD:-\e[1m}"
+COLOR="${ANSI_FG_CYAN:-\e[36m}"
+
+
 MERGED_PATH="$HOME/.local/bin/menu_items/merged.json"
 SEPARATOR=$'|'
 
@@ -17,7 +24,7 @@ else
 fi
 
 if [ ! -f "$MERGED_PATH" ]; then
-    echo "File does not exist: '$MERGED_PATH'"
+    echo "File does not exist: '$MERGED_PATH'" >&2
     exit 1
 fi
 
@@ -40,10 +47,10 @@ cmd=$(cut -d"$SEPARATOR" -f3 <<< "$selected_row" | xargs)
 # Copy the command in clipboard
 echo -n $cmd | cb
 
-echo "The following command has been copied in system clipboard:"
-echo ""
-echo $cmd
-echo ""
+echo -e "${COLOR}The following command has been copied in system clipboard:${RESET}"
+echo -e ""
+echo -e $cmd
+echo -e ""
 
 
 # Use id to extract individual attributes from the whole json object
@@ -56,14 +63,14 @@ if echo "$object" | jq -e '.hints' > /dev/null; then
     hints=$(echo "$object" | jq -r '.hints | @sh')
     declare -a hints_array="($hints)"
 
-    echo "Hints:"
+    echo -e "${BOLD}${COLOR}Hints:${RESET}"
     counter=1
     for hint in "${hints_array[@]}"; do
-        echo "$counter) $hint"
+        echo -e "${BOLD}${COLOR}$counter)${RESET} $hint"
         ((counter++))
     done
 else
-    echo "Command had no hint to show."
+    echo "No hint to show."
 fi
 
 
